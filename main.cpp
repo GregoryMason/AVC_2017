@@ -1,3 +1,9 @@
+#include <stdio.h>
+#include "E101.h"
+
+int numPixels = 0;
+int linePlace[32];
+
 void setMotors(int offSet){
 	int left_motor = 1;
 	int right_motor = 2;
@@ -21,7 +27,6 @@ void setMotors(int offSet){
 
 int main(){
 	init();
-	int numPixels = 0;
 	
 	while (true){
 		setMotors(detectLine());
