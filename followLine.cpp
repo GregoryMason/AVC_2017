@@ -20,7 +20,7 @@ int getRow(int row){
 	
 	int threshold = max / 2;
 	for (int pixel = 0; pixel < 32; pixel++) {
-		if (rowsAv[pixel] < threshold) linePlace[pixel] = 1;
+		if (rowsAv[pixel] > threshold) linePlace[pixel] = 1;
 	}
 	
 	return linePlace;
@@ -35,10 +35,10 @@ double detectLine(){
 	take_picture();
 	display_picture();
 	
-	int[] linePlace = getRow(200);
+	int[] linePlace = getRow(160);
 	
 	double error = 0;
-	int numPixels = 0;
+	numPixels = 0;
 	for (int pixel = 0; pixel < 32; pixel++) {
 		if (linePlace[pixel] == 1){
 			error += (pixel-16);
